@@ -19,7 +19,7 @@ public class AuthorsController {
         return authorsService.getAuthors();
     }
 
-    @GetMapping("/authors/{authorid}")
+    @GetMapping("/author/{authorid}")
     private Authors getAuthords(@PathVariable("authorid") int authorid)
     {
         return authorsService.getAuthorsById(authorid);
@@ -31,4 +31,18 @@ public class AuthorsController {
          authorsService.saveOrUpdate(authors);
         return authors.getAuthorId();
     }
+
+    @DeleteMapping("/author/{authorid}/delete")
+    private void deleteAuthor(@PathVariable("authorid") int authorid){
+        authorsService.delete(authorid);
+    }
+
+    @PutMapping("author/edit/")
+    private  Authors editAuthor( @RequestBody Authors authors){
+        authorsService.update(authors);
+        return authors;
+    }
+
+
 }
+

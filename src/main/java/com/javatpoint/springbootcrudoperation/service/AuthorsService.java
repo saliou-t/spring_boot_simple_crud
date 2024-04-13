@@ -1,9 +1,7 @@
 package com.javatpoint.springbootcrudoperation.service;
 
 import com.javatpoint.springbootcrudoperation.model.Authors;
-import com.javatpoint.springbootcrudoperation.model.Books;
 import com.javatpoint.springbootcrudoperation.repository.AuthorsRepository;
-import com.javatpoint.springbootcrudoperation.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +28,16 @@ public class AuthorsService {
     }
 
     public void saveOrUpdate(Authors authors)
+    {
+        authorsRepository.save(authors);
+    }
+
+    public void delete(int authorid) {
+
+        authorsRepository.deleteById(authorid);
+    }
+
+    public void update(Authors authors)
     {
         authorsRepository.save(authors);
     }
