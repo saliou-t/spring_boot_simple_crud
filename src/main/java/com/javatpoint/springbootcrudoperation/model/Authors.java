@@ -7,12 +7,15 @@ import jakarta.persistence.*;
 public class Authors {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int id;
+    private int authorId;
 
     @Column
     private String name;
+
+    @Column(nullable = false)
+    private String email;
+
 
     public String getName() {
         return name;
@@ -20,7 +23,7 @@ public class Authors {
 
     public int getAuthorId()
     {
-        return id;
+        return authorId;
     }
 
     public void setName(String name) {
@@ -35,6 +38,5 @@ public class Authors {
         this.email = email;
     }
 
-    @Column
-    private String email;
+
 }

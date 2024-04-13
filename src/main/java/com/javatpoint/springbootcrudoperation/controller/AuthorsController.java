@@ -38,11 +38,9 @@ public class AuthorsController {
     }
 
     @PutMapping("author/edit/")
-    private  Authors editAuthor( @RequestBody Authors authors){
-        authorsService.update(authors);
+    private  Authors update( @RequestBody Authors authors){
+        authorsService.saveOrUpdate(authors);
         return authors;
     }
-
-
 }
 
